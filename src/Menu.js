@@ -15,7 +15,8 @@ const Title = styled.span`
 
 const Searchbox = styled.div`
   background-color: #fff;
-  min-widht: 500px;
+  min-width: 230px;
+  border-radius: 5px;
 `;
 
 const Input = styled.input`
