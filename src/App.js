@@ -1,18 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import Menu from './Menu';
+import Movies from './Movies';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      movies: []
+    };
+
+    this.getMovies();
+  }
+
+  getMovies() {
+    const url = 'https://api.themoviedb.org/3/movie/popular?api_key=49562b0dea19eaa1a784e6c5abad1286';
+
+    fetch (url)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.results);
+        this.setState({
+          movies: data.results
+        });
+      });
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Menu />
+        <Movies movies={this.state.movies} />
       </div>
     );
   }
