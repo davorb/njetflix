@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { filter, contains, compose } from 'ramda';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
@@ -39,9 +40,12 @@ class Movies extends Component {
   }
 }
 
+const searchFilter = searchString => filter(movie => movie.title.toLowerCase().includes(searchString.toLowerCase()));
+const genreFilter = currentGenreId => filter(movie => currentGenreId === -1 ? true : contains(currentGenreId, movie.genre_ids));
+
 function mapStateToProps(state) {
   return {
-    movies: state.movies
+    movies: compose(searchFilter(state.search), genreFilter(state.currentGenre))(state.movies)
   };
 }
 
