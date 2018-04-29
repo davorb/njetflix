@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Searchbox from './Searchbox';
-
 const Wrapper = styled.div`
   background-color: #e50914;
   padding: 1em;
@@ -19,7 +17,7 @@ function Menu(props) {
   return (
     <Wrapper>
       <Title>njetflix</Title>
-      <Searchbox />
+      {props.children}
     </Wrapper>
   );
 }
