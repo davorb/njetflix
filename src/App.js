@@ -29,7 +29,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Menu />
         <Movies movies={this.state.movies} />
       </div>
