@@ -23,7 +23,7 @@ class Movies extends Component {
   getMovies() {
     const url = 'https://api.themoviedb.org/3/movie/popular?api_key=49562b0dea19eaa1a784e6c5abad1286';
 
-    fetch (url)
+    fetch(url)
       .then(response => response.json())
       .then(data => {
         this.props.setMovies(data.results);
