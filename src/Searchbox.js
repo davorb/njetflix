@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+
+import { search } from './reducers';
 
 const Wrapper = styled.div`
   background-color: #fff;
@@ -19,13 +22,11 @@ const Input = styled.input`
 class Searchbox extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
-
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value })
+    this.props.search(event.target.value);
   }
 
   render() {
@@ -34,7 +35,7 @@ class Searchbox extends React.Component {
         <Input type="search"
                autocomplete="on"
                placeholder="Search"
-               value={this.state.value}
+               value={this.props.value}
                onChange={this.handleChange}
         />
       </Wrapper>
@@ -42,4 +43,16 @@ class Searchbox extends React.Component {
   }
 }
 
-export default Searchbox;
+function mapStateToProps(state) {
+  return {
+    value: state.search
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    search: query => dispatch(search(query))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Searchbox);
