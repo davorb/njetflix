@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
-
 import Menu from './Menu';
+
+const Wrapper = styled.div`
+  display: flex;
+  padding: 2em;
+`;
+
+const DetailsWrapper = styled.div`
+  padding: 1em;
+`
+
+const Poster = styled.img`
+  border-radius: 5px;
+`;
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -37,9 +48,13 @@ class MovieDetails extends Component {
     return (
       <div>
         <Menu />
-        <h1>{this.state.title}</h1>
-        <img alt="poster" src={this.state.imgUrl} />
-        <p>{this.state.overview}</p>
+        <Wrapper>
+          <Poster alt="poster" src={this.state.imgUrl} />
+          <DetailsWrapper>
+            <h1>{this.state.title}</h1>
+            <p>{this.state.overview}</p>
+          </DetailsWrapper>
+        </Wrapper>
       </div>
     );
   }
