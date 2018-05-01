@@ -6,7 +6,7 @@ import { search } from './reducers';
 
 const Wrapper = styled.div`
   background-color: #fff;
-  min-width: 230px;
+  min-width: 20%;
   border-radius: 5px;
 `;
 
