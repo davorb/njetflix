@@ -2,6 +2,7 @@
   "name": "njetflix",
   "version": "0.1.0",
   "private": true,
+  "homepage": "njetflix",
   "dependencies": {
     "ramda": "^0.25.0",
     "react": "^16.3.2",
