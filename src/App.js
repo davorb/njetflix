@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import MovieDetails from './MovieDetails'
+import MovieDetails from './MovieDetails';
 
 import Menu from './Menu';
 import Genres from './Genres';

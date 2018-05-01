@@ -3,8 +3,11 @@ import styled from 'styled-components';
 import Menu from './Menu';
 
 const Wrapper = styled.div`
-  display: flex;
   padding: 2em;
+
+  @media screen and (min-width: 793px) {
+    display: flex;
+  }
 `;
 
 const DetailsWrapper = styled.div`
