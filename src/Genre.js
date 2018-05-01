@@ -9,6 +9,7 @@ const Pill = styled.div`
   padding: 0.4em;
   border-radius: 5px;
   text-transform: lowercase;
+  cursor: pointer;
 `;
 
 function Genre(props) {
